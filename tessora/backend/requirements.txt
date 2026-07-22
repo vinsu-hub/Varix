@@ -1,0 +1,20 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.34.0
+pydantic-settings>=2.0.0
+python-multipart>=0.0.18
+
+# Document parsing
+pymupdf>=1.25.0
+python-docx>=1.1.0
+
+# Embeddings
+sentence-transformers>=3.0.0
+
+# Search
+rank-bm25>=0.2.2
+
+# LLM
+groq>=0.13.0
+
+# Supabase
+supabase>=2.0.0

@@ -9,7 +9,7 @@ export function Testimonials() {
         What clients say
       </h2>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2">
+      <div className="mt-8 grid max-w-5xl gap-4 sm:grid-cols-2">
         {testimonials.map((testimonial) => (
           <Card key={testimonial.author}>
             <p className="text-foreground text-lg">“{testimonial.quote}”</p>

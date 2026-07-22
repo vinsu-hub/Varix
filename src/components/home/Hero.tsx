@@ -1,23 +1,39 @@
-import { Button } from "@/components/ui/Button";
-import { Section } from "@/components/layout/Section";
-import { siteConfig } from "@/lib/site-config";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Container } from "@/components/layout/Container";
+import { HeroBackground } from "@/components/home/HeroBackground";
+import { LiquidGlassCard } from "@/components/home/LiquidGlassCard";
 
 export function Hero() {
   return (
-    <Section className="pt-28 sm:pt-36">
-      <div className="animate-fade-up max-w-3xl">
-        <p className="text-accent font-mono text-sm">Website & software development</p>
-        <h1 className="text-foreground mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
-          {siteConfig.tagline}
+    <section className="relative h-screen overflow-hidden">
+      <HeroBackground />
+
+      <Container className="relative z-10 flex h-full flex-col items-start justify-center">
+        <LiquidGlassCard />
+
+        <p className="font-[family-name:var(--font-plus-jakarta)] text-xs font-bold uppercase tracking-wider text-brand">
+          Web · AI Automation · Mobile
+        </p>
+
+        <h1 className="mt-4 max-w-4xl font-[family-name:var(--font-inter)] text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
+          ENGINEERED TO<span className="text-brand"> ADAPT.</span>
         </h1>
-        <p className="text-muted mt-6 max-w-xl text-lg">{siteConfig.description}</p>
-        <div className="mt-10 flex flex-wrap gap-4">
-          <Button href="/contact">Start a project</Button>
-          <Button href="/work" variant="secondary">
-            See our work
-          </Button>
-        </div>
-      </div>
-    </Section>
+
+        <p className="mt-6 max-w-[512px] font-[family-name:var(--font-inter)] text-sm leading-relaxed text-white/70">
+          We build the adaptable infrastructure — web platforms, AI automation,
+          and mobile apps — that lets growing businesses run on logic, not
+          guesswork.
+        </p>
+
+        <Link
+          href="/contact"
+          className="mt-10 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 font-[family-name:var(--font-inter)] text-sm font-bold uppercase text-brand-foreground transition-opacity hover:opacity-90"
+        >
+          Start a project
+          <ArrowRight size={16} strokeWidth={2.5} />
+        </Link>
+      </Container>
+    </section>
   );
 }

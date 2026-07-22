@@ -17,7 +17,7 @@ export function FeaturedWork() {
         </Link>
       </div>
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2">
+      <div className="mt-8 grid max-w-5xl gap-4 sm:grid-cols-2">
         {featured.map((project) => (
           <Link key={project.slug} href={`/work/${project.slug}`}>
             <Card className="hover:border-brand h-full transition-colors">

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
+import { services } from "@/lib/data/services";
 import { siteConfig } from "@/lib/site-config";
 
 const columns = [
@@ -14,11 +15,7 @@ const columns = [
   },
   {
     heading: "Services",
-    links: [
-      { href: "/services", label: "Web Development" },
-      { href: "/services", label: "Software Development" },
-      { href: "/services", label: "Product Design" },
-    ],
+    links: services.map((service) => ({ href: "/services", label: service.name })),
   },
   {
     heading: "Legal",
@@ -34,7 +31,7 @@ export function Footer() {
     <footer className="border-border border-t">
       <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <span className="text-foreground text-lg font-semibold tracking-tight">
+          <span className="text-foreground font-mono text-lg font-semibold tracking-tight">
             {siteConfig.name}
           </span>
           <p className="text-muted mt-3 max-w-xs text-sm">{siteConfig.tagline}</p>

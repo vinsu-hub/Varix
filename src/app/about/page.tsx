@@ -16,17 +16,19 @@ export default function AboutPage() {
           About Varix
         </h1>
         <div className="text-muted mt-6 max-w-2xl space-y-4 text-lg">
-          {/* PLACEHOLDER — replace with the real company story once written. */}
+          {/* PLACEHOLDER — replace once a longer-form story is written; this reflects
+              Mission & Vision / Voice & Positioning as currently documented. */}
           <p>
-            Varix started with a simple frustration: too many client projects turn into
-            slow builds, vague scopes, and handoffs nobody wants to own. We build the
-            studio we wished existed — small, direct, and technical enough to make good
-            calls without a committee.
+            Varix designs intelligent, adaptive systems — web platforms, AI automation,
+            and mobile apps — that evolve as fast as the businesses they serve. Most
+            software gets built once and then fights the business it was meant to serve;
+            we build infrastructure that&apos;s meant to change.
           </p>
           <p>
-            Our mission is to ship software and websites that hold up in production, not
-            just in a demo — and to be straightforward about scope, timeline, and
-            tradeoffs the whole way through.
+            We want to be the technical partner organizations turn to when they stop
+            treating AI automation as a bolt-on tool and start treating it as the
+            operating core of how the business runs — starting from Los Baños, built for
+            Southeast Asia and global scale.
           </p>
         </div>
       </Section>

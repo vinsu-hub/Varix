@@ -5,9 +5,9 @@
  */
 export const siteConfig = {
   name: "Varix",
-  tagline: "Websites and software, built with intent.",
+  tagline: "Engineered to Adapt.",
   description:
-    "Varix is a website and software development studio. We design and build marketing sites, web apps, and custom software for teams that need to ship something real.",
+    "Varix builds the adaptable infrastructure — web, AI automation, and mobile — that lets growing businesses run on logic, not guesswork.",
   // PLACEHOLDER — swap once DNS is pointed and the real domain is live.
   url: "https://www.varix.work",
   email: "hello@varix.work",

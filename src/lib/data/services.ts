@@ -8,41 +8,66 @@ export const services: Service[] = [
   {
     slug: "web-development",
     name: "Web Development",
-    summary: "Marketing sites and web apps that load fast and convert.",
+    summary: "Marketing sites and web platforms that load fast and scale with you.",
     description:
-      "We design and build responsive, high-performance websites — from marketing sites to content-driven platforms — using modern frameworks and a strong eye for craft. Every build is optimized for speed, SEO, and accessibility from day one.",
+      "Custom-built websites and web platforms designed to scale — from marketing sites to full product infrastructure. Fast, responsive, and built on modern frameworks that won't lock you into rigid templates.",
     deliverables: [
       "Marketing & brand websites",
+      "Web app front-ends & product infrastructure",
       "Content-managed blogs & documentation sites",
-      "Web app front-ends",
       "Performance & SEO audits",
     ],
   },
   {
-    slug: "software-development",
-    name: "Software Development",
-    summary: "Custom software and internal tools built around how you work.",
+    slug: "ai-automation",
+    name: "AI Automation",
+    summary: "Workflow systems (n8n) that eliminate manual busywork.",
     description:
-      "We build custom software when off-the-shelf tools stop fitting — internal tools, dashboards, APIs, and integrations that connect the systems you already rely on. We favor boring, maintainable technology over trend-chasing.",
+      "We design workflow systems that connect your tools, eliminate manual busywork, and let your team focus on decisions instead of data entry. From lead routing to multi-step LLM pipelines, we build automation that adapts as your business grows — not brittle scripts that break the moment something changes.",
     deliverables: [
-      "Internal tools & admin dashboards",
-      "APIs & third-party integrations",
-      "Automation & workflow tooling",
-      "Technical architecture consulting",
+      "n8n workflow design & implementation",
+      "Lead routing & CRM automation",
+      "Multi-step LLM pipelines",
+      "Tool & API integrations",
     ],
   },
   {
-    slug: "product-design",
-    name: "Product Design",
-    // PLACEHOLDER service line — replace or remove once real service scope is confirmed.
-    summary: "Interface design that holds up once real data hits it.",
+    slug: "ios-development",
+    name: "iOS App Development",
+    summary: "Native iOS apps built with performance and usability at the core.",
     description:
-      "We design interfaces with implementation in mind — wireframes and high-fidelity design that a real engineering team can actually build, not just present. Useful as a standalone engagement or paired with a build.",
+      "Native iOS apps built with performance and usability at the core. Whether it's a customer-facing product or an internal tool, we design mobile experiences that feel intuitive from the first tap.",
     deliverables: [
-      "Product & UX design",
-      "Design systems",
-      "Prototyping",
-      "Design QA during build",
+      "Native iOS product builds",
+      "Customer-facing & internal apps",
+      "App Store launch support",
+      "UI/UX for mobile",
+    ],
+  },
+  {
+    slug: "ai-integration-rag",
+    name: "AI Integration & RAG Systems",
+    summary: "Retrieval-augmented systems grounded in your actual business data.",
+    description:
+      "Beyond simple chatbots — we build retrieval-augmented systems that let your AI tools actually understand your business data, documents, and processes, so responses are accurate and grounded, not guessed.",
+    deliverables: [
+      "Retrieval-augmented generation (RAG) systems",
+      "Document & knowledge-base search",
+      "LLM integration into existing products",
+      "Grounded, permission-aware AI tools",
+    ],
+  },
+  {
+    slug: "architecture-consulting",
+    name: "System Architecture & Consulting",
+    summary: "A technical roadmap before you write a single line of code.",
+    description:
+      "Not sure where automation fits in your stack? We map your existing processes, identify where AI and automation deliver real ROI, and design the technical roadmap before writing a single line of code.",
+    deliverables: [
+      "Process mapping & technical audits",
+      "AI/automation ROI assessment",
+      "Technical roadmap design",
+      "Architecture consulting for existing teams",
     ],
   },
 ];

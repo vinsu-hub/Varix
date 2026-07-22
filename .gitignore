@@ -46,6 +46,10 @@ next-env.d.ts
 
 # local Claude Code runtime state (per-user, not project source)
 /.claude/
+/.claude-flow/
+
+# graphify-generated code knowledge graph (regenerate with `graphify update .`)
+/graphify-out/
 
 # internal agent workflow tooling/notes — not part of the website deliverable
 /agent-vault/

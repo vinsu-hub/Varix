@@ -8,7 +8,7 @@ export function Process() {
         How we work
       </h2>
 
-      <ol className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <ol className="mt-8 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {processSteps.map((item) => (
           <li key={item.step} className="border-border border-l pl-5">
             <span className="text-accent font-mono text-sm">{item.step}</span>

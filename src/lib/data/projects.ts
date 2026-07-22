@@ -12,7 +12,7 @@ export const projects: Project[] = [
     summary: "A dispatch and fleet-tracking web app replacing three spreadsheets.",
     description:
       "[PLACEHOLDER CASE STUDY] Northwind was coordinating dispatch across three spreadsheets and a shared inbox. We built a web app for live fleet tracking, driver assignment, and delivery status — cutting dispatch time significantly and giving ops a single source of truth.",
-    services: ["software-development", "product-design"],
+    services: ["web-development", "architecture-consulting"],
     year: "2025",
     featured: true,
   },
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     summary: "A lightweight storefront and inventory sync for an independent bookstore.",
     description:
       "[PLACEHOLDER CASE STUDY] Harbor Books needed an online storefront that stayed in sync with in-store inventory without extra manual work. We built a lightweight storefront with automated inventory sync and a simple content workflow for staff.",
-    services: ["web-development", "software-development"],
+    services: ["web-development", "ai-automation"],
     year: "2024",
     featured: false,
   },

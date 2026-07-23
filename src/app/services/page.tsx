@@ -22,7 +22,7 @@ export default function ServicesPage() {
         </p>
       </Section>
 
-      <Section className="pt-0">
+      <Section noTopPadding>
         <div className="space-y-6">
           {services.map((service) => (
             <Card key={service.slug} id={service.slug} className="scroll-mt-24">

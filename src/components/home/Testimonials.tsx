@@ -8,7 +8,7 @@ export function Testimonials() {
     <Section className="bg-surface/40">
       <AnimateInView>
         <h2 className="text-foreground text-2xl font-semibold tracking-tight sm:text-3xl">
-          What clients say
+          What we&apos;ve delivered
         </h2>
       </AnimateInView>
 
@@ -16,7 +16,7 @@ export function Testimonials() {
         {testimonials.map((testimonial, i) => (
           <AnimateInView key={testimonial.author} delay={i * 100}>
             <Card>
-              <p className="text-foreground text-lg">&ldquo;{testimonial.quote}&rdquo;</p>
+              <p className="text-foreground text-lg">{testimonial.quote}</p>
               <div className="mt-4 flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand/10 font-mono text-xs font-semibold text-brand">
                   {testimonial.author[0]}

@@ -23,6 +23,7 @@ export function Header() {
 
   return (
     <header
+      style={{ viewTransitionName: "persistent-header" }}
       className={`top-0 z-50 w-full transition-all duration-300 ${
         scrolled
           ? "fixed bg-background/80 backdrop-blur-md border-b border-border shadow-sm"

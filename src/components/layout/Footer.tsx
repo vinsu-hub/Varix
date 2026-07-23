@@ -28,7 +28,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="border-border border-t">
+    <footer style={{ viewTransitionName: "persistent-footer" }} className="border-border border-t">
       <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <span className="text-foreground font-mono text-lg font-semibold tracking-tight">

@@ -9,7 +9,7 @@ export const siteConfig = {
   description:
     "Web development and AI automation agency building adaptive digital infrastructure — full-stack web platforms, AI/automation systems, and native mobile apps — delivered as one coherent system.",
   url: "https://www.varix.work",
-  email: "hello@varixph.com",
+  email: "hello@varix.work",
   links: {
     github: "https://github.com/vinsu-hub/Varix",
   },

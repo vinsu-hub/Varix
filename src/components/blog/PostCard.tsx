@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { ViewTransition } from "react";
 import { Card } from "@/components/ui/Card";
+import { PostCoverImage } from "@/components/blog/PostCoverImage";
+import { TiltCard } from "@/components/ui/TiltCard";
 import type { Post } from "@/types";
 
 function readingTime(content: string): string {
@@ -24,20 +27,19 @@ export function PostCard({ post, featured = false }: { post: Post; featured?: bo
 
   if (featured) {
     return (
-      <Link href={`/blog/${post.slug}`} className="block col-span-full">
+      <TiltCard className="col-span-full">
+        <Link href={`/blog/${post.slug}`} className="block">
         <Card className="h-full overflow-hidden">
           <div className="flex flex-col gap-6 sm:flex-row">
             {/* Image side */}
-            <div className="sm:w-2/5 shrink-0">
-              {post.cover_image ? (
-                <img
+            <div className="image-reveal sm:w-2/5 shrink-0">
+              <ViewTransition name={`post-cover-${post.slug}`} share="morph" default="none">
+                <PostCoverImage
                   src={post.cover_image}
                   alt={post.title}
-                  className="h-48 w-full rounded-lg object-cover sm:h-full"
+                  className="h-48 w-full rounded-lg sm:h-full"
                 />
-              ) : (
-                <div className="h-48 w-full rounded-lg bg-gradient-to-br from-brand/20 via-brand/10 to-transparent sm:h-full" />
-              )}
+              </ViewTransition>
             </div>
             {/* Text side */}
             <div className="flex flex-1 flex-col justify-center py-2">
@@ -68,52 +70,51 @@ export function PostCard({ post, featured = false }: { post: Post; featured?: bo
             </div>
           </div>
         </Card>
-      </Link>
+        </Link>
+      </TiltCard>
     );
   }
 
   return (
-    <Link href={`/blog/${post.slug}`} className="block">
-      <Card className="h-full overflow-hidden">
-        {post.cover_image ? (
-          <img
-            src={post.cover_image}
-            alt={post.title}
-            className="h-40 w-full rounded-lg object-cover"
-          />
-        ) : (
-          <div className="h-40 w-full rounded-lg bg-gradient-to-br from-brand/20 via-brand/10 to-transparent" />
-        )}
+    <TiltCard>
+      <Link href={`/blog/${post.slug}`} className="block">
+        <Card className="h-full overflow-hidden">
+          <div className="image-reveal">
+            <ViewTransition name={`post-cover-${post.slug}`} share="morph" default="none">
+              <PostCoverImage src={post.cover_image} alt={post.title} className="h-40 w-full rounded-lg" />
+            </ViewTransition>
+          </div>
 
-        {/* Tags */}
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          {post.tags.slice(0, 2).map((tag) => (
-            <span
-              key={tag}
-              className="bg-brand/10 text-brand border-brand/20 rounded-full border px-2 py-0.5 font-mono text-xs"
-            >
-              {formatTag(tag)}
-            </span>
-          ))}
-        </div>
+          {/* Tags */}
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {post.tags.slice(0, 2).map((tag) => (
+              <span
+                key={tag}
+                className="bg-brand/10 text-brand border-brand/20 rounded-full border px-2 py-0.5 font-mono text-xs"
+              >
+                {formatTag(tag)}
+              </span>
+            ))}
+          </div>
 
-        {/* Title */}
-        <h3 className="text-foreground mt-3 text-lg font-medium leading-snug">
-          {post.title}
-        </h3>
+          {/* Title */}
+          <h3 className="text-foreground mt-3 text-lg font-medium leading-snug">
+            {post.title}
+          </h3>
 
-        {/* Excerpt */}
-        <p className="text-muted mt-2 flex-1 text-sm leading-relaxed line-clamp-2">
-          {post.excerpt}
-        </p>
+          {/* Excerpt */}
+          <p className="text-muted mt-2 flex-1 text-sm leading-relaxed line-clamp-2">
+            {post.excerpt}
+          </p>
 
-        {/* Meta */}
-        <div className="text-muted mt-4 flex items-center gap-2 font-mono text-xs">
-          <span>{date}</span>
-          <span className="text-border">·</span>
-          <span>{readingTime(post.content)}</span>
-        </div>
-      </Card>
-    </Link>
+          {/* Meta */}
+          <div className="text-muted mt-4 flex items-center gap-2 font-mono text-xs">
+            <span>{date}</span>
+            <span className="text-border">·</span>
+            <span>{readingTime(post.content)}</span>
+          </div>
+        </Card>
+      </Link>
+    </TiltCard>
   );
 }

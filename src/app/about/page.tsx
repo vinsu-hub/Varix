@@ -1,4 +1,6 @@
 import { Section } from "@/components/layout/Section";
+import { Container } from "@/components/layout/Container";
+import { HeroBackground } from "@/components/home/HeroBackground";
 import { Card } from "@/components/ui/Card";
 import { team } from "@/lib/data/team";
 import { buildMetadata } from "@/lib/seo";
@@ -12,28 +14,36 @@ export const metadata = buildMetadata({
 export default function AboutPage() {
   return (
     <>
-      <Section className="pt-14 sm:pt-18">
-        <h1 className="text-foreground text-4xl font-semibold tracking-tight sm:text-5xl">
-          About Varix
-        </h1>
-        <div className="text-muted mt-6 max-w-2xl space-y-4 text-lg">
-          <p>
-            Varix is a web development and AI automation agency building adaptive
-            digital infrastructure for businesses that are ready to move past
-            manual, brittle processes. We specialize in full-stack web platforms,
-            AI/automation systems (with deep expertise in n8n and
-            retrieval-augmented generation), and native iOS/Android app
-            development — delivered as one coherent system rather than
-            disconnected freelance parts.
-          </p>
-          <p>
-            Every system has a variable. We build the constant that makes it
-            work.
-          </p>
+      <section className="relative min-h-[28rem] overflow-hidden sm:min-h-[32rem]">
+        {/* Only shown at lg:+ — below that the text column fills the full
+            width and there's no empty space for the video to fill, so it
+            would just clash with the text instead of sitting behind it. */}
+        <div className="absolute inset-0 hidden lg:block">
+          <HeroBackground />
         </div>
-      </Section>
+        <Container className="relative z-10 flex min-h-[28rem] flex-col justify-center sm:min-h-[32rem]">
+          <h1 className="text-foreground text-4xl font-semibold tracking-tight sm:text-5xl">
+            About Varix
+          </h1>
+          <div className="text-muted mt-6 max-w-xl space-y-4 text-lg">
+            <p>
+              Varix is a web development and AI automation agency building adaptive
+              digital infrastructure for businesses that are ready to move past
+              manual, brittle processes. We specialize in full-stack web platforms,
+              AI/automation systems (with deep expertise in n8n and
+              retrieval-augmented generation), and native iOS/Android app
+              development — delivered as one coherent system rather than
+              disconnected freelance parts.
+            </p>
+            <p>
+              Every system has a variable. We build the constant that makes it
+              work.
+            </p>
+          </div>
+        </Container>
+      </section>
 
-      <Section className="pt-0">
+      <Section noTopPadding>
         <h2 className="text-foreground text-2xl font-semibold tracking-tight sm:text-3xl">
           Why Varix
         </h2>
@@ -68,7 +78,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section className="pt-0">
+      <Section noTopPadding>
         <h2 className="text-foreground text-2xl font-semibold tracking-tight sm:text-3xl">
           Team
         </h2>

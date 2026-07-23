@@ -32,14 +32,17 @@ create policy "Public can read published posts"
 -- or add an authenticated-author policy later if a CMS UI is built.
 
 -- ============================================================================
--- contact_submissions — contact form leads
+-- contact_submissions — quick inquiry popup leads (name, phone, email,
+-- optional message). See quick_inquiries.sql for the migration that added
+-- `phone` and made `message` optional on an already-existing table.
 -- ============================================================================
 create table if not exists public.contact_submissions (
   id uuid primary key default gen_random_uuid(),
   name text not null,
   email text not null,
+  phone text,
   project_type text,
-  message text not null,
+  message text,
   created_at timestamptz not null default now()
 );
 

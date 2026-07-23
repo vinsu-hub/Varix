@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { marked } from "marked";
+import { ViewTransition } from "react";
 import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { BlogHeroImage } from "@/components/blog/BlogHeroImage";
@@ -70,13 +71,18 @@ export default async function BlogPostPage({ params }: Props) {
     <>
       {/* Hero cover image */}
       {post.cover_image && (
-        <div className="relative w-full">
-          <BlogHeroImage src={post.cover_image} alt={post.title} />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-        </div>
+        <ViewTransition name={`post-cover-${post.slug}`} share="morph">
+          <div className="relative w-full">
+            <BlogHeroImage src={post.cover_image} alt={post.title} />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+          </div>
+        </ViewTransition>
       )}
 
-      <Section className={post.cover_image ? "-mt-20 relative z-10 pt-0" : "pt-28 sm:pt-36"}>
+      <Section
+        className={post.cover_image ? "-mt-20 relative z-10" : "pt-28 sm:pt-36"}
+        noTopPadding={Boolean(post.cover_image)}
+      >
         <Container className="max-w-3xl">
           {/* Back link */}
           <Link

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ViewTransition } from "react";
 import { Section } from "@/components/layout/Section";
 import { services } from "@/lib/data/services";
 import { projects } from "@/lib/data/projects";
@@ -60,6 +61,18 @@ export default async function ProjectPage({ params }: Props) {
           </span>
         ))}
       </div>
+
+      {project.image && (
+        <ViewTransition name={`project-${project.slug}`} share="morph">
+          <div className="border-border relative mt-8 h-64 w-full max-w-3xl overflow-hidden rounded-lg border sm:h-96">
+            <img
+              src={project.image}
+              alt={project.imageAlt || project.title}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </ViewTransition>
+      )}
 
       <p className="text-muted mt-8 max-w-2xl text-lg">{project.description}</p>
 

@@ -81,3 +81,45 @@ export async function submitInquiry(
     message: "Thanks — we'll review your project and follow up within 2-3 business days.",
   };
 }
+
+export async function submitQuickInquiry(
+  _prevState: ContactFormState,
+  formData: FormData,
+): Promise<ContactFormState> {
+  const honeypot = formData.get("company_hp");
+  if (typeof honeypot === "string" && honeypot.trim() !== "") {
+    return { status: "success" };
+  }
+
+  const name = String(formData.get("name") ?? "").trim();
+  const phone = String(formData.get("phone") ?? "").trim();
+  const email = String(formData.get("email") ?? "").trim();
+  const message = String(formData.get("message") ?? "").trim();
+
+  if (!name || !phone || !email) {
+    return { status: "error", message: "Name, phone, and email are required." };
+  }
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    return { status: "error", message: "Enter a valid email address." };
+  }
+
+  const supabase = getSupabaseServerClient();
+  if (supabase) {
+    const { error } = await supabase.from("contact_submissions").insert({
+      name,
+      email,
+      phone,
+      message: message || null,
+    });
+    if (error) {
+      console.error("Supabase insert error:", error);
+    }
+  }
+
+  return {
+    status: "success",
+    message: "Thanks — we'll get back to you shortly.",
+  };
+}

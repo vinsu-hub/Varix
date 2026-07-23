@@ -4,14 +4,15 @@ import { useActionState } from "react";
 import { CheckCircle, Mail } from "lucide-react";
 import { submitInquiry } from "@/app/contact/actions";
 import { PROJECT_TYPES, BUDGET_OPTIONS, BRAND_ASSET_OPTIONS } from "@/lib/data/project-types";
+import { siteConfig } from "@/lib/site-config";
 import type { ContactFormState } from "@/types";
 
 const initialState: ContactFormState = { status: "idle" };
 
-const inputClasses =
+export const inputClasses =
   "w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted transition-colors duration-200 focus:border-brand focus:outline-none";
 
-const labelClasses = "text-foreground block text-sm font-medium";
+export const labelClasses = "text-foreground block text-sm font-medium";
 
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
@@ -34,7 +35,7 @@ export function ContactForm() {
         <p className="mt-4 text-lg">Thanks — we&apos;ll review your project and follow up within 2-3 business days.</p>
         <p className="text-muted mt-2 text-sm">Need a faster response?</p>
         <a
-          href="mailto:hello@varixph.com?subject=Project%20Inquiry"
+          href={`mailto:${siteConfig.email}?subject=Project%20Inquiry`}
           className="text-brand mt-3 inline-flex items-center gap-2 text-sm font-medium hover:opacity-80"
         >
           <Mail size={14} />

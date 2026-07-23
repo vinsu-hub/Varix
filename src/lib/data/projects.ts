@@ -13,8 +13,8 @@ export const projects: Project[] = [
     year: "2026",
     featured: true,
     link: "https://www.farmsy.app/",
-    image: "https://placehold.co/800x450/166534/ffffff?text=Farmsy",
-    imageAlt: "Farmsy platform showing farm listings and map view",
+    image: "/projects/farmsy.jpg",
+    imageAlt: "Farmsy homepage showing the interactive farm map and native iOS app screen",
   },
   {
     slug: "summit-sports-academy",
@@ -28,8 +28,8 @@ export const projects: Project[] = [
     year: "2026",
     featured: true,
     link: "https://summit-sports-academy.vercel.app/",
-    image: "https://placehold.co/800x450/dc2626/ffffff?text=Summit+Sports",
-    imageAlt: "Summit Sports Academy website homepage",
+    image: "/projects/summit-sports-academy.jpg",
+    imageAlt: "Summit Sports Academy website homepage hero section",
   },
   {
     slug: "tessora",
@@ -42,8 +42,8 @@ export const projects: Project[] = [
     services: ["rag-document-intelligence", "web-development"],
     year: "2026",
     featured: false,
-    image: "https://placehold.co/800x450/92400e/fbbf24?text=Tessora",
-    imageAlt: "Tessora document intelligence dashboard",
+    image: "/projects/tessora.jpg",
+    imageAlt: "Tessora logo and tagline, \"From fragments to foresight.\"",
   },
   {
     slug: "rag-poverty-intervention",
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     services: ["rag-document-intelligence", "architecture-consulting"],
     year: "2026",
     featured: true,
-    image: "https://placehold.co/800x450/0e7490/ffffff?text=RAG+Poverty",
-    imageAlt: "RAG poverty intervention data visualization",
+    image: "/projects/rag-poverty-intervention.jpg",
+    imageAlt: "MPI RAG System interface showing the Los Baños barangay map and poverty-intervention recommendation panel",
   },
 ];

@@ -7,13 +7,11 @@ export const siteConfig = {
   name: "Varix",
   tagline: "Engineered to Adapt.",
   description:
-    "Varix builds the adaptable infrastructure — web, AI automation, and mobile — that lets growing businesses run on logic, not guesswork.",
-  // PLACEHOLDER — swap once DNS is pointed and the real domain is live.
+    "Web development and AI automation agency building adaptive digital infrastructure — full-stack web platforms, AI/automation systems, and native mobile apps — delivered as one coherent system.",
   url: "https://www.varix.work",
-  email: "hello@varix.work",
+  email: "hello@varixph.com",
   links: {
-    // PLACEHOLDER — fill in real social/profile links when they exist.
-    github: "https://github.com/varix",
+    github: "https://github.com/vinsu-hub/Varix",
   },
 } as const;
 

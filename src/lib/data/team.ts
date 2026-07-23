@@ -1,22 +1,16 @@
 import type { TeamMember } from "@/types";
 
-/**
- * PLACEHOLDER team — replace with real bios/photos when available.
- */
 export const team: TeamMember[] = [
   {
-    name: "Jordan Reyes",
-    role: "Founder & Engineering Lead",
-    bio: "[PLACEHOLDER BIO] Leads technical strategy and architecture across every engagement.",
+    name: "Neil Alvin Medallon",
+    role: "CEO & Founder",
+    bio: "Leads website and app development across iOS and Android, with deep expertise in general system development and integration. Oversees technical strategy and architecture across every Varix engagement.",
+    email: "neilalvinmedallon@varix.work",
   },
   {
-    name: "Sam Okafor",
-    role: "Product Designer",
-    bio: "[PLACEHOLDER BIO] Designs interfaces that hold up once real data and real users hit them.",
-  },
-  {
-    name: "Priya Nair",
-    role: "Software Engineer",
-    bio: "[PLACEHOLDER BIO] Builds the backend systems and integrations behind client projects.",
+    name: "Vince Daniel P. Tamis",
+    role: "Co-Founder & RAG Specialist",
+    bio: "Specializes in retrieval-augmented generation (RAG) systems and document intelligence. Also works across web development and system integration, building the AI-powered retrieval architectures that underpin Varix's document intelligence capabilities.",
+    email: "vincetamis@varix.work",
   },
 ];

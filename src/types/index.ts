@@ -21,12 +21,14 @@ export type Project = {
   services: string[];
   year: string;
   featured?: boolean;
+  link?: string;
 };
 
 export type TeamMember = {
   name: string;
   role: string;
   bio: string;
+  email?: string;
 };
 
 export type Testimonial = {

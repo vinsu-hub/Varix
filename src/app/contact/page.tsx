@@ -5,7 +5,8 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Contact",
-  description: "Get in touch with Varix about a website or software project.",
+  description:
+    "Get in touch with Varix about a web, AI automation, mobile app, or RAG project.",
 });
 
 export default function ContactPage() {

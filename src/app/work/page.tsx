@@ -16,7 +16,7 @@ export default function WorkPage() {
           Work
         </h1>
         <p className="text-muted mt-4 max-w-2xl text-lg">
-          A sample of projects we&apos;ve built. Case studies below are placeholders.
+          Real projects, real results.
         </p>
       </Section>
 

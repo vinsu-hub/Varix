@@ -66,7 +66,7 @@ export function Footer() {
         <p>
           © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
         </p>
-        <p>PLACEHOLDER branding — swap when brand kit is ready.</p>
+        <p>Los Baños, Laguna, Philippines</p>
       </Container>
     </footer>
   );

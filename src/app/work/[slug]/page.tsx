@@ -62,6 +62,17 @@ export default async function ProjectPage({ params }: Props) {
       </div>
 
       <p className="text-muted mt-8 max-w-2xl text-lg">{project.description}</p>
+
+      {project.link && (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-brand mt-6 inline-block text-sm hover:opacity-80"
+        >
+          View live site →
+        </a>
+      )}
     </Section>
   );
 }

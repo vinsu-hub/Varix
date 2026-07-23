@@ -53,3 +53,5 @@ next-env.d.ts
 
 # internal agent workflow tooling/notes — not part of the website deliverable
 /agent-vault/
+
+.vercel

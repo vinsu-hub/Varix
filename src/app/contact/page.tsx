@@ -1,6 +1,5 @@
 import { Section } from "@/components/layout/Section";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { MeetingButton } from "@/components/booking/BookingButton";
 import { siteConfig } from "@/lib/site-config";
 import { buildMetadata } from "@/lib/seo";
 
@@ -21,15 +20,12 @@ export default function ContactPage() {
           Tell us about your project and we&apos;ll get back to you within 2-3 business days.
         </p>
 
-        <div className="mt-6 flex flex-wrap items-center gap-4">
-          <MeetingButton variant="primary" />
-          <a
-            href={`mailto:${siteConfig.email}`}
-            className="text-muted hover:text-foreground text-sm transition-colors"
-          >
-            or email {siteConfig.email}
-          </a>
-        </div>
+        <a
+          href={`mailto:${siteConfig.email}?subject=Project%20Inquiry`}
+          className="text-brand mt-6 inline-block text-sm font-medium hover:opacity-80"
+        >
+          {siteConfig.email}
+        </a>
       </div>
 
       <div className="mt-10 max-w-3xl">

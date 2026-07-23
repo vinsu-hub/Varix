@@ -1,0 +1,48 @@
+▲ Next.js 16.2.10 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.12:3000
+- Environments: .env.local
+✓ Ready in 890ms
+
+ GET / 200 in 970ms (next.js: 240ms, application-code: 729ms)
+ GET / 200 in 164ms (next.js: 8ms, application-code: 156ms)
+ GET /blog 200 in 712ms (next.js: 85ms, application-code: 628ms)
+ GET /blog/farmsy-ios-android-app-case-study 200 in 1526ms (next.js: 1039ms, generate-params: 969ms, application-code: 488ms)
+ GET /blog/farmsy-mobile-cover.jpg 404 in 332ms (next.js: 86ms, generate-params: 15ms, application-code: 246ms)
+ GET /about 200 in 181ms (next.js: 66ms, application-code: 115ms)
+ GET /work 200 in 85ms (next.js: 38ms, application-code: 47ms)
+ GET / 200 in 57ms (next.js: 3ms, application-code: 54ms)
+✓ Compiled in 117ms
+✓ Compiled in 145ms
+✓ Compiled in 649ms
+✓ Compiled in 428ms
+✓ Compiled in 102ms
+✓ Compiled in 229ms
+✓ Compiled in 106ms
+✓ Compiled in 921ms
+✓ Compiled in 1167ms
+✓ Compiled in 104ms
+✓ Compiled in 154ms
+✓ Compiled in 223ms
+✓ Compiled in 93ms
+✓ Compiled in 103ms
+✓ Compiled in 136ms
+✓ Compiled in 98ms
+✓ Compiled in 93ms
+✓ Compiled in 106ms
+✓ Compiled in 131ms
+✓ Compiled in 86ms
+✓ Compiled in 87ms
+✓ Compiled in 171ms
+✓ Compiled in 119ms
+✓ Compiled in 245ms
+✓ Compiled in 159ms
+✓ Compiled in 108ms
+✓ Compiled in 119ms
+✓ Compiled in 170ms
+✓ Compiled in 266ms
+  Reload env: .env.local
+✓ Compiled in 219ms
+✓ Compiled in 140ms
+✓ Compiled in 145ms
+✓ Compiled in 166ms

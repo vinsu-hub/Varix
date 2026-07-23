@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { HeroBackground } from "@/components/home/HeroBackground";
 import { LiquidGlassCard } from "@/components/home/LiquidGlassCard";
-import { MeetingButton } from "@/components/booking/BookingButton";
 
 export function Hero() {
   return (
@@ -35,7 +34,13 @@ export function Hero() {
             Start a project
             <ArrowRight size={16} strokeWidth={2.5} />
           </Link>
-          <MeetingButton variant="secondary" className="border-white/20 text-white hover:border-brand hover:text-brand" />
+          <a
+            href="mailto:hello@varixph.com?subject=Project%20Inquiry"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 font-[family-name:var(--font-inter)] text-sm font-bold uppercase text-white transition-all duration-200 hover:border-brand hover:text-brand hover:scale-[1.03] hover:shadow-lg hover:shadow-brand/20"
+          >
+            <Mail size={16} strokeWidth={2.5} />
+            Email Us
+          </a>
         </div>
       </Container>
     </section>

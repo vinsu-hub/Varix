@@ -1,10 +1,9 @@
 "use client";
 
 import { useActionState } from "react";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Mail } from "lucide-react";
 import { submitInquiry } from "@/app/contact/actions";
 import { PROJECT_TYPES, BUDGET_OPTIONS, BRAND_ASSET_OPTIONS } from "@/lib/data/project-types";
-import { MeetingButton } from "@/components/booking/BookingButton";
 import type { ContactFormState } from "@/types";
 
 const initialState: ContactFormState = { status: "idle" };
@@ -33,10 +32,14 @@ export function ContactForm() {
       >
         <CheckCircle className="mx-auto text-brand" size={40} />
         <p className="mt-4 text-lg">Thanks — we&apos;ll review your project and follow up within 2-3 business days.</p>
-        <p className="text-muted mt-2 text-sm">Want to talk sooner?</p>
-        <div className="mt-4">
-          <MeetingButton variant="primary" />
-        </div>
+        <p className="text-muted mt-2 text-sm">Need a faster response?</p>
+        <a
+          href="mailto:hello@varixph.com?subject=Project%20Inquiry"
+          className="text-brand mt-3 inline-flex items-center gap-2 text-sm font-medium hover:opacity-80"
+        >
+          <Mail size={14} />
+          Email us directly
+        </a>
       </div>
     );
   }

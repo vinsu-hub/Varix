@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { services } from "@/lib/data/services";
 import { siteConfig } from "@/lib/site-config";
@@ -32,7 +31,9 @@ export function Footer() {
     <footer className="border-border border-t">
       <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Image src="/logo.png" alt="Varix" width={120} height={40} />
+          <span className="text-foreground font-mono text-lg font-semibold tracking-tight">
+            {siteConfig.name}
+          </span>
           <p className="text-muted mt-3 max-w-xs text-sm">{siteConfig.tagline}</p>
           <a
             href={`mailto:${siteConfig.email}`}

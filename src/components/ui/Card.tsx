@@ -15,7 +15,7 @@ export function Card({
     <div
       id={id}
       style={style}
-      className={`border-border bg-surface rounded-(--radius-card) border p-5 sm:p-6 transition-all duration-200 hover:border-brand/50 hover:shadow-lg hover:shadow-brand/5 ${className}`}
+      className={`border-border bg-surface rounded-(--radius-card) border p-5 sm:p-6 transition-all duration-200 card-hover ${className}`}
     >
       {children}
     </div>

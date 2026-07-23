@@ -13,7 +13,7 @@ export default async function BlogPage() {
 
   return (
     <>
-      <Section className="pt-28 sm:pt-36">
+      <Section className="pt-14 sm:pt-18">
         <h1 className="text-foreground text-4xl font-semibold tracking-tight sm:text-5xl">
           Blog
         </h1>

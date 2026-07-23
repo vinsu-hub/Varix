@@ -12,7 +12,7 @@ export const metadata = buildMetadata({
 export default function AboutPage() {
   return (
     <>
-      <Section className="pt-28 sm:pt-36">
+      <Section className="pt-14 sm:pt-18">
         <h1 className="text-foreground text-4xl font-semibold tracking-tight sm:text-5xl">
           About Varix
         </h1>

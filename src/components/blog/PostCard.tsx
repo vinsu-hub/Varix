@@ -29,7 +29,15 @@ export function PostCard({ post, featured = false }: { post: Post; featured?: bo
           <div className="flex flex-col gap-6 sm:flex-row">
             {/* Image side */}
             <div className="sm:w-2/5 shrink-0">
-              <div className="h-48 w-full rounded-lg bg-gradient-to-br from-brand/20 via-brand/10 to-transparent sm:h-full" />
+              {post.cover_image ? (
+                <img
+                  src={post.cover_image}
+                  alt={post.title}
+                  className="h-48 w-full rounded-lg object-cover sm:h-full"
+                />
+              ) : (
+                <div className="h-48 w-full rounded-lg bg-gradient-to-br from-brand/20 via-brand/10 to-transparent sm:h-full" />
+              )}
             </div>
             {/* Text side */}
             <div className="flex flex-1 flex-col justify-center py-2">
@@ -67,8 +75,15 @@ export function PostCard({ post, featured = false }: { post: Post; featured?: bo
   return (
     <Link href={`/blog/${post.slug}`} className="block">
       <Card className="h-full overflow-hidden">
-        {/* Gradient placeholder — swap for <img> when real cover images are added */}
-        <div className="h-40 w-full rounded-lg bg-gradient-to-br from-brand/20 via-brand/10 to-transparent" />
+        {post.cover_image ? (
+          <img
+            src={post.cover_image}
+            alt={post.title}
+            className="h-40 w-full rounded-lg object-cover"
+          />
+        ) : (
+          <div className="h-40 w-full rounded-lg bg-gradient-to-br from-brand/20 via-brand/10 to-transparent" />
+        )}
 
         {/* Tags */}
         <div className="mt-4 flex flex-wrap gap-1.5">

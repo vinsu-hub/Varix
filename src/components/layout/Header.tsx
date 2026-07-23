@@ -42,7 +42,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-[family-name:var(--font-inter)] text-[16px] font-medium text-white/80 uppercase transition-colors hover:text-brand"
+              className="nav-link font-[family-name:var(--font-inter)] text-[16px] font-medium text-white/80 uppercase transition-colors hover:text-brand"
             >
               {link.label}
             </Link>

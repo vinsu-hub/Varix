@@ -1,19 +1,16 @@
 import type { Testimonial } from "@/types";
 
-/**
- * PLACEHOLDER testimonials — replace with real client quotes once available.
- */
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "[PLACEHOLDER TESTIMONIAL] Varix rebuilt our dispatch process into something our whole ops team actually wants to use.",
-    author: "Alex Chen",
-    role: "COO, Northwind Logistics",
+      "Varix took Farmsy from an idea to something people actually use every week — a clean, fast platform that made 8,000+ farms easy to find. They handled the web build and the mobile rollout without missing a beat.",
+    author: "Luke",
+    role: "Founder, Farmsy",
   },
   {
     quote:
-      "[PLACEHOLDER TESTIMONIAL] They shipped fast without cutting corners, and kept us in the loop the entire time.",
-    author: "Morgan Lee",
-    role: "Marketing Director, Atlas Supply Co.",
+      "Varix gave Summit Sports Academy a website that finally matches the level of what we're building on the ground. Parents and sponsors get it immediately now — that clarity has made a real difference for us.",
+    author: "Dar",
+    role: "Founder, Summit Sports Academy",
   },
 ];

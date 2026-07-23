@@ -22,6 +22,8 @@ export type Project = {
   year: string;
   featured?: boolean;
   link?: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 export type TeamMember = {

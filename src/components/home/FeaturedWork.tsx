@@ -3,6 +3,16 @@ import { Section } from "@/components/layout/Section";
 import { Card } from "@/components/ui/Card";
 import { projects } from "@/lib/data/projects";
 
+
+const serviceTagLabels: Record<string, string> = {
+  "web-development": "Web",
+  "mobile-app-development": "Mobile",
+  "ai-automation": "AI",
+  "rag-document-intelligence": "RAG",
+  "custom-embedded-systems": "Embedded",
+  "architecture-consulting": "Consulting",
+};
+
 export function FeaturedWork() {
   const featured = projects.filter((project) => project.featured);
 
@@ -28,6 +38,16 @@ export function FeaturedWork() {
                 {project.title}
               </h3>
               <p className="text-muted mt-3 text-sm">{project.summary}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.services.map((slug) => (
+                  <span
+                    key={slug}
+                    className="bg-brand/10 text-brand border-brand/20 rounded-full border px-2.5 py-0.5 font-mono text-xs"
+                  >
+                    {serviceTagLabels[slug] || slug}
+                  </span>
+                ))}
+              </div>
             </Card>
           </Link>
         ))}

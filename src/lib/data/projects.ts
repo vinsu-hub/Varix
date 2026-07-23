@@ -6,9 +6,9 @@ export const projects: Project[] = [
     title: "Farmsy",
     client: "Farmsy",
     summary:
-      "Local farm discovery platform connecting users with 8,000+ verified farms across the Netherlands and Belgium.",
+      "Cross-platform iOS & Android app plus web platform connecting users with 8,000+ verified farms across the Netherlands and Belgium.",
     description:
-      "Full end-to-end product build: web platform plus native iOS and Android apps. Farmsy connects users with 8,000+ verified farms across the Netherlands and Belgium — farm shops, organic producers, and pick-your-own locations — with map-based discovery, verified/SKAL-certified organic listings, and direct farm contact details. Includes a subscription model (yearly and lifetime tiers) and is live on Google Play, with iOS in progress.",
+      "Full end-to-end product build: web platform plus native iOS and Android apps built with cross-platform mobile development. Farmsy connects users with 8,000+ verified farms across the Netherlands and Belgium — farm shops, organic producers, and pick-your-own locations — with map-based discovery, verified/SKAL-certified organic listings, and direct farm contact details. Includes a subscription model (yearly and lifetime tiers) and is live on Google Play, with iOS in progress.",
     services: ["web-development", "mobile-app-development"],
     year: "2026",
     featured: true,

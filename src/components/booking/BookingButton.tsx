@@ -10,6 +10,8 @@ type BookingButtonProps = {
   children?: React.ReactNode;
 };
 
+const calLink = process.env.NEXT_PUBLIC_CALCOM_LINK;
+
 export function BookingButton({
   variant = "secondary",
   className = "",
@@ -18,19 +20,16 @@ export function BookingButton({
   const [loading, setLoading] = useState(false);
 
   const openBooking = useCallback(async () => {
+    if (!calLink) {
+      window.location.href = "mailto:hello@varixph.com?subject=Discovery%20Call%20Request";
+      return;
+    }
     setLoading(true);
     try {
       const cal = await getCalApi();
-      await cal("modal", {
-        calLink: process.env.NEXT_PUBLIC_CALCOM_LINK ?? "varix/discovery-call",
-      });
+      await cal("modal", { calLink });
     } catch {
-      // Fallback: open Cal.com in a new tab
-      window.open(
-        `https://cal.com/${process.env.NEXT_PUBLIC_CALCOM_LINK ?? "varix/discovery-call"}`,
-        "_blank",
-        "noopener,noreferrer",
-      );
+      window.open(`https://cal.com/${calLink}`, "_blank", "noopener,noreferrer");
     } finally {
       setLoading(false);
     }
@@ -52,7 +51,7 @@ export function BookingButton({
       className={`${base} ${variants[variant]} ${className}`}
     >
       <Calendar size={16} strokeWidth={2.5} />
-      {children ?? "Book a Discovery Call"}
+      {children ?? (calLink ? "Book a Discovery Call" : "Schedule a Call")}
     </button>
   );
 }

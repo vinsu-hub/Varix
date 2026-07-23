@@ -5,6 +5,7 @@ import { ArrowLeft } from "lucide-react";
 import { marked } from "marked";
 import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
+import { BlogHeroImage } from "@/components/blog/BlogHeroImage";
 import { getPostBySlug, getPublishedPosts } from "@/lib/data/posts";
 import { buildMetadata } from "@/lib/seo";
 
@@ -69,13 +70,8 @@ export default async function BlogPostPage({ params }: Props) {
     <>
       {/* Hero cover image */}
       {post.cover_image && (
-        <div className="relative h-64 w-full sm:h-80 lg:h-96">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={post.cover_image}
-            alt={post.title}
-            className="h-full w-full object-cover"
-          />
+        <div className="relative w-full">
+          <BlogHeroImage src={post.cover_image} alt={post.title} />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         </div>
       )}

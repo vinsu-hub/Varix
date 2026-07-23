@@ -59,3 +59,38 @@ create policy "Public can submit contact form"
 create index if not exists posts_published_at_idx on public.posts (published_at desc);
 create index if not exists contact_submissions_created_at_idx
   on public.contact_submissions (created_at desc);
+
+-- ============================================================================
+-- inquiries — detailed project inquiry form submissions
+-- ============================================================================
+create table if not exists public.inquiries (
+  id            uuid primary key default gen_random_uuid(),
+  name          text not null,
+  email         text not null,
+  role          text,
+  phone         text,
+  website       text,
+  project_types text[],
+  project_description text not null,
+  goals         text,
+  existing_system text,
+  brand_assets  text,
+  existing_data text,
+  tech_requirements text,
+  start_date    text,
+  launch_date   text,
+  budget        text,
+  additional_context text,
+  referral_source text,
+  created_at    timestamptz default now()
+);
+
+alter table public.inquiries enable row level security;
+
+create policy "anon_can_insert_inquiries"
+  on public.inquiries
+  for insert
+  to anon
+  with check (true);
+
+create index if not exists inquiries_created_at_idx on public.inquiries (created_at desc);

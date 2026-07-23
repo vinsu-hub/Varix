@@ -55,3 +55,24 @@ export type ContactFormState = {
   status: "idle" | "success" | "error";
   message?: string;
 };
+
+export type InquiryFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  company: string;
+  website: string;
+  role: string;
+  projectTypes: string[];
+  projectDescription: string;
+  goals: string;
+  existingSystem: string;
+  brandAssets: string;
+  existingData: string;
+  techRequirements: string;
+  startDate: string;
+  launchDate: string;
+  budget: string;
+  additionalContext: string;
+  referralSource: string;
+};

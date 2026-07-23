@@ -1,28 +1,29 @@
 "use server";
 
 import { getSupabaseServerClient } from "@/lib/supabase/server";
-import { PROJECT_TYPES } from "@/lib/data/project-types";
 import type { ContactFormState } from "@/types";
 
-export async function submitContactForm(
+export async function submitInquiry(
   _prevState: ContactFormState,
   formData: FormData,
 ): Promise<ContactFormState> {
   // Honeypot: real users never fill this hidden field in. Bots that
   // autofill every field will, so we silently drop the submission but
   // still report success to avoid tipping them off.
-  const honeypot = formData.get("company");
+  const honeypot = formData.get("company_hp");
   if (typeof honeypot === "string" && honeypot.trim() !== "") {
     return { status: "success" };
   }
 
   const name = String(formData.get("name") ?? "").trim();
   const email = String(formData.get("email") ?? "").trim();
-  const message = String(formData.get("message") ?? "").trim();
-  const projectType = String(formData.get("project_type") ?? "").trim();
+  const projectDescription = String(formData.get("project_description") ?? "").trim();
 
-  if (!name || !email || !message) {
-    return { status: "error", message: "Name, email, and message are required." };
+  if (!name || !email || !projectDescription) {
+    return {
+      status: "error",
+      message: "Name, email, and project description are required.",
+    };
   }
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -30,30 +31,53 @@ export async function submitContactForm(
     return { status: "error", message: "Enter a valid email address." };
   }
 
-  if (projectType && !PROJECT_TYPES.includes(projectType)) {
-    return { status: "error", message: "Select a valid project type." };
-  }
-
-  const supabase = getSupabaseServerClient();
-  if (!supabase) {
-    return {
-      status: "error",
-      message: "Contact form isn't connected to Supabase yet. See README for setup.",
-    };
-  }
-
-  const { error } = await supabase.from("contact_submissions").insert({
+  // Collect all form fields
+  const projectTypes = formData.getAll("project_types").map(String).filter(Boolean);
+  const data = {
     name,
     email,
-    message,
-    project_type: projectType || null,
-  });
+    role: String(formData.get("role") ?? "").trim() || null,
+    phone: String(formData.get("phone") ?? "").trim() || null,
+    website: String(formData.get("website") ?? "").trim() || null,
+    project_types: projectTypes.length > 0 ? projectTypes : null,
+    project_description: projectDescription,
+    goals: String(formData.get("goals") ?? "").trim() || null,
+    existing_system: String(formData.get("existing_system") ?? "").trim() || null,
+    brand_assets: String(formData.get("brand_assets") ?? "").trim() || null,
+    existing_data: String(formData.get("existing_data") ?? "").trim() || null,
+    tech_requirements: String(formData.get("tech_requirements") ?? "").trim() || null,
+    start_date: String(formData.get("start_date") ?? "").trim() || null,
+    launch_date: String(formData.get("launch_date") ?? "").trim() || null,
+    budget: String(formData.get("budget") ?? "").trim() || null,
+    additional_context: String(formData.get("additional_context") ?? "").trim() || null,
+    referral_source: String(formData.get("referral_source") ?? "").trim() || null,
+  };
 
-  if (error) {
-    return { status: "error", message: "Something went wrong. Please try again." };
+  // 1. Insert into Supabase
+  const supabase = getSupabaseServerClient();
+  if (supabase) {
+    const { error } = await supabase.from("inquiries").insert(data);
+    if (error) {
+      console.error("Supabase insert error:", error);
+    }
   }
 
-  return { status: "success", message: "Thanks — we'll be in touch soon." };
-}
+  // 2. POST to webhook (if configured)
+  const webhookUrl = process.env.INQUIRY_WEBHOOK_URL;
+  if (webhookUrl) {
+    try {
+      await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+    } catch (err) {
+      console.error("Webhook POST error:", err);
+    }
+  }
 
-export { PROJECT_TYPES };
+  return {
+    status: "success",
+    message: "Thanks — we'll review your project and follow up within 2-3 business days.",
+  };
+}

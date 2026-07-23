@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { HeroBackground } from "@/components/home/HeroBackground";
 import { LiquidGlassCard } from "@/components/home/LiquidGlassCard";
+import { BookingButton } from "@/components/booking/BookingButton";
 
 export function Hero() {
   return (
@@ -26,14 +27,16 @@ export function Hero() {
           guesswork.
         </p>
 
-        <Link
-          href="/contact"
-          className="mt-10 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 font-[family-name:var(--font-inter)] text-sm font-bold uppercase text-brand-foreground transition-opacity hover:opacity-90 animate-fade-up"
-          style={{ animationDelay: "400ms" }}
-        >
-          Start a project
-          <ArrowRight size={16} strokeWidth={2.5} />
-        </Link>
+        <div className="mt-10 flex flex-wrap items-center gap-4 animate-fade-up" style={{ animationDelay: "400ms" }}>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 font-[family-name:var(--font-inter)] text-sm font-bold uppercase text-brand-foreground transition-opacity hover:opacity-90"
+          >
+            Start a project
+            <ArrowRight size={16} strokeWidth={2.5} />
+          </Link>
+          <BookingButton variant="secondary" className="border-white/20 text-white hover:border-brand hover:text-brand" />
+        </div>
       </Container>
     </section>
   );

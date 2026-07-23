@@ -11,6 +11,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@calcom/embed-react": "^1.5.3",
     "@supabase/supabase-js": "^2.110.7",
     "hls.js": "^1.6.16",
     "lucide-react": "^1.25.0",

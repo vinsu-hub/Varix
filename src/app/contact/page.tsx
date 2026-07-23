@@ -1,5 +1,6 @@
 import { Section } from "@/components/layout/Section";
 import { ContactForm } from "@/components/contact/ContactForm";
+import { BookingButton } from "@/components/booking/BookingButton";
 import { siteConfig } from "@/lib/site-config";
 import { buildMetadata } from "@/lib/seo";
 
@@ -11,27 +12,28 @@ export const metadata = buildMetadata({
 
 export default function ContactPage() {
   return (
-    <Section className="pt-28 sm:pt-36">
-      <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
-        <div>
-          <h1 className="text-foreground text-4xl font-semibold tracking-tight sm:text-5xl">
-            Let&apos;s talk
-          </h1>
-          <p className="text-muted mt-4 max-w-md text-lg">
-            Tell us about your project and we&apos;ll get back to you within a couple of
-            business days.
-          </p>
+    <Section className="pt-14 sm:pt-18">
+      <div className="max-w-3xl">
+        <h1 className="text-foreground text-4xl font-semibold tracking-tight sm:text-5xl">
+          Let&apos;s talk
+        </h1>
+        <p className="text-muted mt-4 max-w-md text-lg">
+          Tell us about your project and we&apos;ll get back to you within 2-3 business days.
+        </p>
+
+        <div className="mt-6 flex flex-wrap items-center gap-4">
+          <BookingButton variant="primary" />
           <a
             href={`mailto:${siteConfig.email}`}
-            className="text-brand mt-6 inline-block text-sm hover:opacity-80"
+            className="text-muted hover:text-foreground text-sm transition-colors"
           >
-            {siteConfig.email}
+            or email {siteConfig.email}
           </a>
         </div>
+      </div>
 
-        <div className="relative">
-          <ContactForm />
-        </div>
+      <div className="mt-10 max-w-3xl">
+        <ContactForm />
       </div>
     </Section>
   );

@@ -16,7 +16,7 @@ export default function WorkPage() {
           Work
         </h1>
         <p className="text-muted mt-4 max-w-2xl text-lg">
-          Real projects, real results.
+          Products we've engineered. Outcomes we've delivered.
         </p>
       </Section>
 

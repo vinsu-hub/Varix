@@ -1,6 +1,6 @@
 import { Section } from "@/components/layout/Section";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { BookingButton } from "@/components/booking/BookingButton";
+import { MeetingButton } from "@/components/booking/BookingButton";
 import { siteConfig } from "@/lib/site-config";
 import { buildMetadata } from "@/lib/seo";
 
@@ -22,7 +22,7 @@ export default function ContactPage() {
         </p>
 
         <div className="mt-6 flex flex-wrap items-center gap-4">
-          <BookingButton variant="primary" />
+          <MeetingButton variant="primary" />
           <a
             href={`mailto:${siteConfig.email}`}
             className="text-muted hover:text-foreground text-sm transition-colors"

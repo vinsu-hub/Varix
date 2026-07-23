@@ -4,7 +4,7 @@ import { useActionState } from "react";
 import { CheckCircle } from "lucide-react";
 import { submitInquiry } from "@/app/contact/actions";
 import { PROJECT_TYPES, BUDGET_OPTIONS, BRAND_ASSET_OPTIONS } from "@/lib/data/project-types";
-import { BookingButton } from "@/components/booking/BookingButton";
+import { MeetingButton } from "@/components/booking/BookingButton";
 import type { ContactFormState } from "@/types";
 
 const initialState: ContactFormState = { status: "idle" };
@@ -35,7 +35,7 @@ export function ContactForm() {
         <p className="mt-4 text-lg">Thanks — we&apos;ll review your project and follow up within 2-3 business days.</p>
         <p className="text-muted mt-2 text-sm">Want to talk sooner?</p>
         <div className="mt-4">
-          <BookingButton variant="primary" />
+          <MeetingButton variant="primary" />
         </div>
       </div>
     );

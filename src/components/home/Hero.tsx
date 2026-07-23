@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { HeroBackground } from "@/components/home/HeroBackground";
 import { LiquidGlassCard } from "@/components/home/LiquidGlassCard";
-import { BookingButton } from "@/components/booking/BookingButton";
+import { MeetingButton } from "@/components/booking/BookingButton";
 
 export function Hero() {
   return (
@@ -35,7 +35,7 @@ export function Hero() {
             Start a project
             <ArrowRight size={16} strokeWidth={2.5} />
           </Link>
-          <BookingButton variant="secondary" className="border-white/20 text-white hover:border-brand hover:text-brand" />
+          <MeetingButton variant="secondary" className="border-white/20 text-white hover:border-brand hover:text-brand" />
         </div>
       </Container>
     </section>

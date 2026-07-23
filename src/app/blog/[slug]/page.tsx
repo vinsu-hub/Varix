@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
+import { marked } from "marked";
 import { Section } from "@/components/layout/Section";
+import { Container } from "@/components/layout/Container";
 import { getPostBySlug, getPublishedPosts } from "@/lib/data/posts";
 import { buildMetadata } from "@/lib/seo";
 
@@ -21,6 +24,11 @@ function formatTag(tag: string): string {
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(" ");
 }
+
+marked.setOptions({
+  breaks: true,
+  gfm: true,
+});
 
 export async function generateStaticParams() {
   const posts = await getPublishedPosts();
@@ -55,47 +63,72 @@ export default async function BlogPostPage({ params }: Props) {
     day: "numeric",
   });
 
+  const htmlContent = marked.parse(post.content) as string;
+
   return (
-    <Section className="pt-28 sm:pt-36">
-      <Link href="/blog" className="text-muted hover:text-foreground text-sm">
-        ← All posts
-      </Link>
-
-      <p className="text-muted mt-6 font-mono text-xs">
-        {date} · {post.author} · {readingTime(post.content)}
-      </p>
-      <h1 className="text-foreground mt-2 text-4xl font-semibold tracking-tight sm:text-5xl">
-        {post.title}
-      </h1>
-
-      {post.tags.length > 0 && (
-        <div className="mt-4 flex flex-wrap gap-2">
-          {post.tags.map((tag) => (
-            <span
-              key={tag}
-              className="bg-brand/10 text-brand border-brand/20 rounded-full border px-2.5 py-0.5 font-mono text-xs"
-            >
-              {formatTag(tag)}
-            </span>
-          ))}
+    <>
+      {/* Hero cover image */}
+      {post.cover_image && (
+        <div className="relative h-64 w-full sm:h-80 lg:h-96">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={post.cover_image}
+            alt={post.title}
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         </div>
       )}
 
-      {post.cover_image && (
-        // Cover images come from an arbitrary Supabase storage URL set per-post,
-        // so we use a plain <img> rather than next/image (which needs known
-        // remote hostnames configured ahead of time in next.config.ts).
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={post.cover_image}
-          alt={post.title}
-          className="border-border mt-8 w-full rounded-(--radius-card) border object-cover"
-        />
-      )}
+      <Section className={post.cover_image ? "-mt-20 relative z-10 pt-0" : "pt-28 sm:pt-36"}>
+        <Container className="max-w-3xl">
+          {/* Back link */}
+          <Link
+            href="/blog"
+            className="text-muted hover:text-foreground mb-8 inline-flex items-center gap-1.5 text-sm transition-colors"
+          >
+            <ArrowLeft size={14} />
+            All posts
+          </Link>
 
-      <div className="prose-blog text-muted mt-8 max-w-2xl text-base leading-relaxed">
-        {post.content}
-      </div>
-    </Section>
+          {/* Title */}
+          <h1 className="text-foreground text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
+            {post.title}
+          </h1>
+
+          {/* Meta row */}
+          <div className="text-muted mt-4 flex flex-wrap items-center gap-2 font-mono text-xs">
+            <span>{date}</span>
+            <span className="text-border">·</span>
+            <span>{post.author}</span>
+            <span className="text-border">·</span>
+            <span>{readingTime(post.content)}</span>
+          </div>
+
+          {/* Tags */}
+          {post.tags.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="bg-brand/10 text-brand border-brand/20 rounded-full border px-2.5 py-0.5 font-mono text-xs"
+                >
+                  {formatTag(tag)}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {/* Divider */}
+          <div className="border-border my-8 border-t" />
+
+          {/* Article content */}
+          <article
+            className="prose-blog text-muted text-base leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: htmlContent }}
+          />
+        </Container>
+      </Section>
+    </>
   );
 }

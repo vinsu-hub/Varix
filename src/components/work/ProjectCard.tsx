@@ -14,7 +14,7 @@ const serviceTagLabels: Record<string, string> = {
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <Link href={`/work/${project.slug}`} className="block">
-      <Card className="hover:border-brand h-full transition-colors">
+      <Card className="h-full">
         <p className="text-muted font-mono text-xs">
           {project.client} · {project.year}
         </p>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { CheckCircle } from "lucide-react";
 import { submitContactForm } from "@/app/contact/actions";
 import { PROJECT_TYPES } from "@/lib/data/project-types";
 import type { ContactFormState } from "@/types";
@@ -8,19 +9,21 @@ import type { ContactFormState } from "@/types";
 const initialState: ContactFormState = { status: "idle" };
 
 const inputClasses =
-  "w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted focus:border-brand focus:outline-none";
+  "w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground placeholder:text-muted transition-colors duration-200 focus:border-brand focus:outline-none";
 
 export function ContactForm() {
   const [state, formAction, isPending] = useActionState(submitContactForm, initialState);
 
   if (state.status === "success") {
     return (
-      <p
+      <div
         role="status"
-        className="border-border bg-surface text-foreground rounded-(--radius-card) border p-6"
+        className="border-border bg-surface text-foreground rounded-(--radius-card) border p-6 text-center"
       >
-        {state.message ?? "Thanks — we'll be in touch soon."}
-      </p>
+        <CheckCircle className="mx-auto text-brand" size={32} />
+        <p className="mt-3">{state.message ?? "Thanks — we'll be in touch soon."}</p>
+        <p className="text-muted mt-1 text-sm">We typically respond within 24 hours.</p>
+      </div>
     );
   }
 
@@ -109,7 +112,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="bg-brand text-brand-foreground inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-opacity hover:opacity-90 disabled:opacity-60"
+        className="bg-brand text-brand-foreground inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-all duration-200 hover:opacity-90 active:scale-[0.97] disabled:opacity-60"
       >
         {isPending ? "Sending…" : "Send message"}
       </button>

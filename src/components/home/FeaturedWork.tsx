@@ -19,7 +19,7 @@ export function FeaturedWork() {
   return (
     <Section className="bg-surface/40">
       <div className="flex items-end justify-between gap-4">
-        <h2 className="text-foreground text-2xl font-semibold tracking-tight sm:text-3xl">
+        <h2 className="text-foreground text-2xl font-semibold tracking-tight sm:text-3xl animate-fade-up">
           Featured work
         </h2>
         <Link href="/work" className="text-muted hover:text-foreground text-sm">
@@ -28,9 +28,9 @@ export function FeaturedWork() {
       </div>
 
       <div className="mt-8 grid max-w-5xl gap-4 sm:grid-cols-2">
-        {featured.map((project) => (
-          <Link key={project.slug} href={`/work/${project.slug}`}>
-            <Card className="hover:border-brand h-full transition-colors">
+        {featured.map((project, i) => (
+          <Link key={project.slug} href={`/work/${project.slug}`} className="animate-fade-up" style={{ animationDelay: `${i * 100}ms` }}>
+            <Card className="h-full">
               <p className="text-muted font-mono text-xs">
                 {project.client} · {project.year}
               </p>

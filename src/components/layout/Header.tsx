@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { MobileNav } from "@/components/layout/MobileNav";
@@ -10,8 +13,22 @@ const navLinks = [
 ];
 
 export function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="absolute top-0 z-50 w-full">
+    <header
+      className={`top-0 z-50 w-full transition-all duration-300 ${
+        scrolled
+          ? "fixed bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
+          : "absolute"
+      }`}
+    >
       <Container className="flex h-16 items-center justify-between">
         <Link
           href="/"

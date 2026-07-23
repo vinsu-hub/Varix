@@ -4,7 +4,7 @@ import { Section } from "@/components/layout/Section";
 export function CtaSection() {
   return (
     <Section>
-      <div className="border-border bg-surface max-w-5xl mx-auto rounded-(--radius-card) border px-6 py-12 text-center sm:px-12">
+      <div className="border-border bg-surface max-w-5xl mx-auto rounded-(--radius-card) border px-6 py-12 text-center sm:px-12 animate-fade-up">
         <h2 className="text-foreground text-2xl font-semibold tracking-tight sm:text-3xl">
           Have a project in mind?
         </h2>

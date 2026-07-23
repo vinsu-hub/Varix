@@ -80,7 +80,7 @@ export default async function BlogPostPage({ params }: Props) {
         />
       )}
 
-      <div className="text-muted mt-8 max-w-2xl text-base leading-relaxed whitespace-pre-wrap">
+      <div className="prose-blog text-muted mt-8 max-w-2xl text-base leading-relaxed">
         {post.content}
       </div>
     </Section>

@@ -11,7 +11,7 @@ export function PostCard({ post }: { post: Post }) {
 
   return (
     <Link href={`/blog/${post.slug}`} className="block">
-      <Card className="hover:border-brand h-full transition-colors">
+      <Card className="h-full">
         <p className="text-muted font-mono text-xs">
           {date} · {post.author}
         </p>

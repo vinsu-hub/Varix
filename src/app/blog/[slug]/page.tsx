@@ -9,6 +9,19 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+function readingTime(content: string): string {
+  const words = content.split(/\s+/).length;
+  const mins = Math.max(1, Math.round(words / 200));
+  return `${mins} min read`;
+}
+
+function formatTag(tag: string): string {
+  return tag
+    .split("-")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
 export async function generateStaticParams() {
   const posts = await getPublishedPosts();
   return posts.map((post) => ({ slug: post.slug }));
@@ -49,7 +62,7 @@ export default async function BlogPostPage({ params }: Props) {
       </Link>
 
       <p className="text-muted mt-6 font-mono text-xs">
-        {date} · {post.author}
+        {date} · {post.author} · {readingTime(post.content)}
       </p>
       <h1 className="text-foreground mt-2 text-4xl font-semibold tracking-tight sm:text-5xl">
         {post.title}
@@ -60,9 +73,9 @@ export default async function BlogPostPage({ params }: Props) {
           {post.tags.map((tag) => (
             <span
               key={tag}
-              className="border-border text-muted rounded-full border px-3 py-1 text-xs"
+              className="bg-brand/10 text-brand border-brand/20 rounded-full border px-2.5 py-0.5 font-mono text-xs"
             >
-              {tag}
+              {formatTag(tag)}
             </span>
           ))}
         </div>
